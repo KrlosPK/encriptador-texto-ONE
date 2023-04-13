@@ -5,10 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Encriptador de texto | Krlos Morales</title>
+    <link rel="shortcut icon" href="./imgs/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="styles.css" />
     <script src="app.js" defer></script>
   </head>
   <body>
-    <h1>Hola mundo!</h1>
+    <main>
+      <section>
+        <header>
+          <img src="./imgs/Logo.png" alt="Logo de Alura" />
+        </header>
+        <form id="encryptForm">
+          <textarea name="userInput" id="userInput" cols="30" rows="10"></textarea>
+          <span>Solo letras minúsculas sin acentos</span>
+          <button id="encryptBtn">Encriptar</button>
+          <button id="decryptBtn">Desencriptar</button>
+        </form>
+      </section>
+      <section>
+        <aside>
+          <article id="placeholderInfo">
+            <img src="./imgs/Muñeco.png" alt="avatar para los mensajes no encontrados" />
+            <h2>Ningún mensaje fue encontrado</h2>
+            <p id="warning">Ingresa el texto que desees encriptar o desencriptar</p>
+          </article>
+          <article id="decryptedInfo">
+            <p id="decryptedText"></p>
+            <button id="decryptedCopyBtn">Copiar</button>
+          </article>
+        </aside>
+      </section>
+    </main>
   </body>
 </html>
