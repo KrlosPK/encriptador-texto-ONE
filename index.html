@@ -12,25 +12,28 @@
   <body>
     <main>
       <section>
-        <header>
-          <img src="./imgs/Logo.png" alt="Logo de Alura" />
-        </header>
-        <form id="encryptForm">
-          <input type="text" id="userInput" placeholder="Encripta tu texto aquí" />
-          <span>ℹ Solo letras minúsculas sin acentos</span>
-        </form>
-        <button id="encryptBtn">Encriptar</button>
-        <button id="decryptBtn">Desencriptar</button>
-      </section>
-      <section>
-        <aside>
+        <article class="user-interactivity">
+          <header class="encrypt__header">
+            <img src="./imgs/Logo.png" alt="Logo de Alura" />
+            <h1>Encriptador de texto</h1>
+          </header>
+          <form id="encryptForm" class="encrypt-form">
+            <textarea name="userInput" id="userInput" autocomplete="off" placeholder="Encripta tu texto aquí" cols="30" rows="10"></textarea>
+            <span><img src="./imgs/info.png" width="20" height="20" alt="ícono de información" /> Solo letras minúsculas sin acentos</span>
+          </form>
+          <div>
+            <button id="encryptBtn">Encriptar</button>
+            <button id="decryptBtn">Desencriptar</button>
+          </div>
+        </article>
+        <aside class="encrypted-response">
           <article id="placeholderInfo">
-            <img src="./imgs/Muñeco.png" alt="avatar para los mensajes no encontrados" />
-            <h2>Ningún mensaje fue encontrado</h2>
-            <p id="warning">Ingresa el texto que desees encriptar o desencriptar</p>
+            <img src="./imgs/Muñeco.png" width="250" alt="avatar para los mensajes no encontrados" />
+            <h2 class="placeholder__title">Ningún mensaje fue encontrado</h2>
+            <p id="warning" class="placeholder__text">Ingresa el texto que desees encriptar o desencriptar</p>
           </article>
           <article id="decryptedInfo" class="hidden">
-            <p id="decryptedText">Texto desencriptado</p>
+            <p id="decryptedText"></p>
             <button id="decryptedCopyBtn">Copiar</button>
           </article>
         </aside>
