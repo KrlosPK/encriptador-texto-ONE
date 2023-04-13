@@ -10,16 +10,16 @@ const warning = document.querySelector('#warning')
 
 // ? Diccionarios de datos
 const encrypter = {
-  a: 'enter',
-  e: 'imes',
-  i: 'ai',
+  a: 'ai',
+  e: 'enter',
+  i: 'imes',
   o: 'ober',
   u: 'ufat'
 }
 const decrypter = {
-  enter: 'a',
-  imes: 'e',
-  ai: 'i',
+  ai: 'a',
+  enter: 'e',
+  imes: 'i',
   ober: 'o',
   ufat: 'u'
 }
@@ -34,7 +34,7 @@ const copyToClipboard = () => {
 }
 
 const decrypt = (text) => {
-  const regex = /enter|imes|ai|ober|ufat/g
+  const regex = /ai|enter|imes|ober|ufat/g
   userInput.value = ''
 
   return text.replace(regex, (match) => decrypter[match])
