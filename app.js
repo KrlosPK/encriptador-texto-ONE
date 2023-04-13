@@ -55,6 +55,7 @@ const encrypt = (text) => {
 const validateInput = (isEncrypt = true) => {
   const userText = userInput.value
 
+  warning.classList.add('warning')
   if (userText === '' || userText.trim() === '') {
     decryptedInfo.classList.add('hidden')
     placeholderInfo.classList.remove('hidden')
@@ -74,7 +75,6 @@ const validateInput = (isEncrypt = true) => {
 
   isEncrypt ? (decryptedText.textContent = encrypt(userText)) : (decryptedText.textContent = decrypt(userText))
 
-  warning.textContent = 'Ingresa el texto que desees encriptar o desencriptar'
   decryptedInfo.classList.remove('hidden')
   placeholderInfo.classList.add('hidden')
 }
@@ -86,3 +86,10 @@ encryptForm.addEventListener('submit', (e) => {
 encryptBtn.addEventListener('click', () => validateInput())
 decryptBtn.addEventListener('click', () => validateInput(false))
 decryptedCopyBtn.addEventListener('click', () => copyToClipboard())
+// ? Validar el textarea con el enter y evitar que se haga el salto de línea
+userInput.addEventListener('keypress', (e) => {
+  if (e.keyCode === 13) {
+    e.preventDefault()
+    validateInput()
+  }
+})
