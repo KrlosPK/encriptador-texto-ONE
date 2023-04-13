@@ -1,3 +1,125 @@
+/* Crear variables css */
+:root {
+  --main-color: #343a40;
+  --secondary-color: #495057;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  align-items: center;
+  background-color: #f3f5fc;
+  display: flex;
+  font-family: system-ui;
+  justify-content: center;
+  margin: 0;
+  min-height: 100vh;
+}
 .hidden {
   display: none;
+}
+.warning {
+  color: #dc3545;
+}
+
+section {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  min-height: 90vh;
+  width: 80vw;
+}
+
+.user-interactivity {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+  justify-content: space-between;
+  max-width: 800px;
+  width: 100%;
+}
+.encrypt__header {
+  display: flex;
+}
+.encrypt__header h1 {
+  color: var(--main-color);
+  font-size: 1.5rem;
+}
+.encrypt__header img {
+  object-fit: contain;
+}
+.encrypt-form {
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 30%;
+  justify-content: space-between;
+  width: 100%;
+}
+.encrypt-form textarea {
+  align-items: end;
+  border: none;
+  border-radius: 15px;
+  display: flex;
+  font-size: 1.3rem;
+  height: 100%;
+  line-break: auto;
+  padding: 1.5rem 1rem;
+  resize: none;
+  width: 100%;
+}
+.encrypt-form textarea:focus {
+  outline: 3px solid #86b7fe;
+}
+.encrypt-form span {
+  align-items: center;
+  color: var(--secondary-color);
+  display: flex;
+  font-size: 14px;
+  gap: 4px;
+  justify-content: center;
+}
+.encrypt-form span img {
+  filter: grayscale(80%);
+}
+
+.encrypted-response {
+  align-items: center;
+  background-color: #fff;
+  border-radius: 32px;
+  box-shadow: 0px 24px 32px -8px rgba(0, 0, 0, 0.08);
+  display: flex;
+  height: 800px;
+  justify-content: center;
+  margin: 1rem;
+  padding: 20px;
+  text-align: center;
+  width: 400px;
+}
+.placeholder__title {
+  color: var(--main-color);
+  font-size: 1.5rem;
+}
+.placeholder__text {
+  color: var(--secondary-color);
+  min-height: 50px;
+}
+
+footer {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  translate: -50%;
+}
+footer a img {
+  transition: scale 0.2s ease-in-out;
+}
+footer a img:hover {
+  scale: 1.1;
 }
