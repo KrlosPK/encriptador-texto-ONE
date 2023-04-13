@@ -16,11 +16,11 @@
           <img src="./imgs/Logo.png" alt="Logo de Alura" />
         </header>
         <form id="encryptForm">
-          <textarea name="userInput" id="userInput" cols="30" rows="10"></textarea>
-          <span>Solo letras minúsculas sin acentos</span>
-          <button id="encryptBtn">Encriptar</button>
-          <button id="decryptBtn">Desencriptar</button>
+          <input type="text" id="userInput" placeholder="Encripta tu texto aquí" />
+          <span>ℹ Solo letras minúsculas sin acentos</span>
         </form>
+        <button id="encryptBtn">Encriptar</button>
+        <button id="decryptBtn">Desencriptar</button>
       </section>
       <section>
         <aside>
@@ -29,12 +29,15 @@
             <h2>Ningún mensaje fue encontrado</h2>
             <p id="warning">Ingresa el texto que desees encriptar o desencriptar</p>
           </article>
-          <article id="decryptedInfo">
-            <p id="decryptedText"></p>
+          <article id="decryptedInfo" class="hidden">
+            <p id="decryptedText">Texto desencriptado</p>
             <button id="decryptedCopyBtn">Copiar</button>
           </article>
         </aside>
       </section>
+      <footer>
+        <p>Hecho con ❤️ por Krlos Morales</p>
+      </footer>
     </main>
   </body>
 </html>

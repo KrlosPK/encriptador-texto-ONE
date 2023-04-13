@@ -8,7 +8,7 @@ const decryptedText = document.querySelector('#decryptedText')
 const decryptedCopyBtn = document.querySelector('#decryptedCopyBtn')
 const warning = document.querySelector('#warning')
 
-// ? Diccionario de datos
+// ? Diccionarios de datos
 const encrypter = {
   a: 'enter',
   e: 'imes',
@@ -16,3 +16,86 @@ const encrypter = {
   o: 'ober',
   u: 'ufat'
 }
+
+const decrypter = {
+  enter: 'a',
+  imes: 'e',
+  ai: 'i',
+  ober: 'o',
+  ufat: 'u'
+}
+
+const copyToClipboard = () => {
+  const el = document.createElement('textarea')
+  el.value = decryptedText.textContent
+  document.body.appendChild(el)
+  el.select()
+  navigator.clipboard.writeText(el.value)
+  document.body.removeChild(el)
+}
+
+// ! Not working properly
+const decrypt = (text) => {
+  const decryptedText = []
+  const regex = /enter|imes|ai|ober|ufat/g
+
+  text.split(' ').forEach((el) => {
+    if (regex.test(el)) {
+      el.replace(regex, (match) => decryptedText.push(decrypter[match]))
+    } else {
+      decryptedText.push(el)
+    }
+  })
+
+  userInput.value = ''
+
+  return decryptedText.join('')
+}
+
+const encrypt = (text) => {
+  const encryptedText = []
+
+  text.split('').map((el) => {
+    encrypter[el] ? encryptedText.push(encrypter[el]) : encryptedText.push(el)
+  })
+
+  userInput.value = ''
+
+  return encryptedText.join('')
+}
+
+const validateInput = (isEncrypt = true) => {
+  const userText = userInput.value
+
+  if (userText === '' || userText.trim() === '') {
+    decryptedInfo.classList.add('hidden')
+    placeholderInfo.classList.remove('hidden')
+    warning.textContent = 'El texto no puede estar vacío'
+    return
+  } else if (userText !== userText.toLowerCase()) {
+    decryptedInfo.classList.add('hidden')
+    placeholderInfo.classList.remove('hidden')
+    warning.textContent = 'El texto no puede tener mayúsculas'
+    return
+  } else if (/[áéíóú]/.test(userText)) {
+    decryptedInfo.classList.add('hidden')
+    placeholderInfo.classList.remove('hidden')
+    warning.textContent = 'El texto no puede tener acentos'
+    return
+  }
+
+  isEncrypt ? (decryptedText.textContent = encrypt(userText)) : (decryptedText.textContent = decrypt(userText))
+
+  warning.textContent = 'Ingresa el texto que desees encriptar o desencriptar'
+  decryptedInfo.classList.remove('hidden')
+  placeholderInfo.classList.add('hidden')
+}
+
+encryptForm.addEventListener('submit', (e) => {
+  e.preventDefault()
+  validateInput()
+})
+
+encryptBtn.addEventListener('click', () => validateInput())
+decryptBtn.addEventListener('click', () => validateInput(false))
+decryptedCopyBtn.addEventListener('click', () => copyToClipboard())
