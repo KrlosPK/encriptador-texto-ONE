@@ -16,7 +16,6 @@ const encrypter = {
   o: 'ober',
   u: 'ufat'
 }
-
 const decrypter = {
   enter: 'a',
   imes: 'e',
@@ -34,22 +33,11 @@ const copyToClipboard = () => {
   document.body.removeChild(el)
 }
 
-// ! Not working properly
 const decrypt = (text) => {
-  const decryptedText = []
   const regex = /enter|imes|ai|ober|ufat/g
-
-  text.split(' ').forEach((el) => {
-    if (regex.test(el)) {
-      el.replace(regex, (match) => decryptedText.push(decrypter[match]))
-    } else {
-      decryptedText.push(el)
-    }
-  })
-
   userInput.value = ''
 
-  return decryptedText.join('')
+  return text.replace(regex, (match) => decrypter[match])
 }
 
 const encrypt = (text) => {
@@ -95,7 +83,6 @@ encryptForm.addEventListener('submit', (e) => {
   e.preventDefault()
   validateInput()
 })
-
 encryptBtn.addEventListener('click', () => validateInput())
 decryptBtn.addEventListener('click', () => validateInput(false))
 decryptedCopyBtn.addEventListener('click', () => copyToClipboard())
