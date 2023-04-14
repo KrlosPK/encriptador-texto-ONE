@@ -39,7 +39,9 @@ const copyToClipboard = () => {
 
 const decrypt = (text) => {
   const regex = /ai|enter|imes|ober|ufat/g
+
   userInput.value = ''
+  userInput.focus()
 
   return text.replace(regex, (match) => decrypter[match])
 }
@@ -52,6 +54,7 @@ const encrypt = (text) => {
   })
 
   userInput.value = ''
+  userInput.focus()
 
   return encryptedText.join('')
 }
@@ -66,18 +69,21 @@ const validateInput = (isEncrypt = true) => {
     placeholderInfo.classList.remove('hidden')
     warning.classList.add('warning')
     warning.textContent = 'El texto no puede estar vacío'
+    userInput.focus()
     return
   } else if (userText !== userText.toLowerCase()) {
     decryptedInfo.classList.add('hidden')
     placeholderInfo.classList.remove('hidden')
     warning.classList.add('warning')
     warning.textContent = 'El texto no puede tener mayúsculas'
+    userInput.focus()
     return
   } else if (/[áéíóú]/.test(userText)) {
     decryptedInfo.classList.add('hidden')
     placeholderInfo.classList.remove('hidden')
     warning.classList.add('warning')
     warning.textContent = 'El texto no puede tener acentos'
+    userInput.focus()
     return
   }
 

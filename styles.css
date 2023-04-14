@@ -146,6 +146,10 @@ section {
   color: var(--secondary-color);
   min-height: 50px;
 }
+.decrypted-text {
+  font-size: 1.3rem;
+  margin-bottom: 2rem;
+}
 
 footer {
   align-items: center;
