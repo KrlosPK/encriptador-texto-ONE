@@ -21,9 +21,9 @@
             <textarea name="userInput" id="userInput" autocomplete="off" placeholder="Encripta tu texto aquí" cols="30" rows="10"></textarea>
             <span><img src="./imgs/info.png" width="20" height="20" alt="ícono de información" /> Solo letras minúsculas sin acentos</span>
           </form>
-          <div>
-            <button id="encryptBtn">Encriptar</button>
-            <button id="decryptBtn">Desencriptar</button>
+          <div class="encrypt-buttons">
+            <button id="encryptBtn" class="encrypt-buttons__encrypt">Encriptar</button>
+            <button id="decryptBtn" class="encrypt-buttons__decrypt">Desencriptar</button>
           </div>
         </article>
         <aside class="encrypted-response">
@@ -34,7 +34,7 @@
           </article>
           <article id="decryptedInfo" class="hidden">
             <p id="decryptedText"></p>
-            <button id="decryptedCopyBtn">Copiar</button>
+            <button id="decryptedCopyBtn" class="encrypt-buttons__decrypt">Copiar</button>
           </article>
         </aside>
       </section>

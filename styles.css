@@ -2,6 +2,7 @@
 :root {
   --main-color: #343a40;
   --secondary-color: #495057;
+  --button-color: #0a3871;
 }
 * {
   box-sizing: border-box;
@@ -14,12 +15,6 @@ body {
   justify-content: center;
   margin: 0;
   min-height: 100vh;
-}
-.hidden {
-  display: none;
-}
-.warning {
-  color: #dc3545;
 }
 
 section {
@@ -44,7 +39,9 @@ section {
 }
 .encrypt__header h1 {
   color: var(--main-color);
+  font-family: serif;
   font-size: 1.5rem;
+  font-weight: 800;
 }
 .encrypt__header img {
   object-fit: contain;
@@ -63,6 +60,7 @@ section {
   border: none;
   border-radius: 15px;
   display: flex;
+  font-family: inherit;
   font-size: 1.3rem;
   height: 100%;
   line-break: auto;
@@ -83,6 +81,48 @@ section {
 }
 .encrypt-form span img {
   filter: grayscale(80%);
+}
+.encrypt-buttons {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  width: 100%;
+}
+.encrypt-buttons__encrypt {
+  background-color: var(--button-color);
+  border: none;
+  border-radius: 24px;
+  color: #fff;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  min-width: 250px;
+  padding: 0.7rem 1.5rem;
+  transition: background-color 0.2s ease-in-out;
+}
+.encrypt-buttons__decrypt {
+  background-color: #fff;
+  background-color: transparent;
+  border: none;
+  border-radius: 24px;
+  color: var(--button-color);
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  min-width: 250px;
+  outline: 1px solid var(--button-color);
+  padding: 0.7rem 1.5rem;
+  transition: background-color 0.2s ease-in-out;
+}
+.encrypt-buttons__encrypt:hover {
+  background-color: #062750;
+}
+.encrypt-buttons__decrypt:hover {
+  outline: 1px solid #062750;
 }
 
 .encrypted-response {
@@ -109,17 +149,27 @@ section {
 
 footer {
   align-items: center;
-  bottom: 0;
   display: flex;
   gap: 10px;
   justify-content: center;
-  left: 50%;
-  position: absolute;
-  translate: -50%;
 }
 footer a img {
   transition: scale 0.2s ease-in-out;
 }
 footer a img:hover {
   scale: 1.1;
+}
+.hidden {
+  display: none;
+}
+.warning {
+  color: #dc3545;
+}
+.copied {
+  color: #28a745;
+  outline: 1px solid #28a745;
+}
+.copied:hover {
+  color: #1b8033;
+  outline: 1px solid #1b8033;
 }

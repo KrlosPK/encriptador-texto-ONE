@@ -31,6 +31,10 @@ const copyToClipboard = () => {
   el.select()
   navigator.clipboard.writeText(el.value)
   document.body.removeChild(el)
+
+  // ? Mostrar mensaje popup de copiado
+  decryptedCopyBtn.textContent = 'Copiado'
+  decryptedCopyBtn.classList.add('copied')
 }
 
 const decrypt = (text) => {
@@ -55,20 +59,24 @@ const encrypt = (text) => {
 const validateInput = (isEncrypt = true) => {
   const userText = userInput.value
 
-  warning.classList.add('warning')
+  decryptedCopyBtn.textContent = 'Copiar'
+  decryptedCopyBtn.classList.remove('copied')
   if (userText === '' || userText.trim() === '') {
     decryptedInfo.classList.add('hidden')
     placeholderInfo.classList.remove('hidden')
+    warning.classList.add('warning')
     warning.textContent = 'El texto no puede estar vacío'
     return
   } else if (userText !== userText.toLowerCase()) {
     decryptedInfo.classList.add('hidden')
     placeholderInfo.classList.remove('hidden')
+    warning.classList.add('warning')
     warning.textContent = 'El texto no puede tener mayúsculas'
     return
   } else if (/[áéíóú]/.test(userText)) {
     decryptedInfo.classList.add('hidden')
     placeholderInfo.classList.remove('hidden')
+    warning.classList.add('warning')
     warning.textContent = 'El texto no puede tener acentos'
     return
   }
