@@ -16,6 +16,13 @@ body {
   margin: 0;
   min-height: 100vh;
 }
+main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100vw;
+}
 
 section {
   align-items: center;
@@ -26,7 +33,6 @@ section {
 }
 
 .user-interactivity {
-  align-items: start;
   display: flex;
   flex-direction: column;
   height: 800px;
@@ -88,35 +94,30 @@ section {
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
+  margin: 2rem auto;
   width: 100%;
+}
+.encrypt-buttons__encrypt,
+.encrypt-buttons__decrypt {
+  border: none;
+  border-radius: 24px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 1.2rem;
+  font-weight: 600;
+  min-width: 250px;
+  padding: 0.7rem 1.5em;
+  transition: background-color 0.2s ease-in-out;
 }
 .encrypt-buttons__encrypt {
   background-color: var(--button-color);
-  border: none;
-  border-radius: 24px;
   color: #fff;
   cursor: pointer;
-  font-family: inherit;
-  font-size: 1.2rem;
-  font-weight: 600;
-  min-width: 250px;
-  padding: 0.7rem 1.5rem;
-  transition: background-color 0.2s ease-in-out;
 }
 .encrypt-buttons__decrypt {
-  background-color: #fff;
   background-color: transparent;
-  border: none;
-  border-radius: 24px;
   color: var(--button-color);
-  cursor: pointer;
-  font-family: inherit;
-  font-size: 1.2rem;
-  font-weight: 600;
-  min-width: 250px;
   outline: 1px solid var(--button-color);
-  padding: 0.7rem 1.5rem;
-  transition: background-color 0.2s ease-in-out;
 }
 .encrypt-buttons__encrypt:hover {
   background-color: #062750;
@@ -154,8 +155,10 @@ section {
 footer {
   align-items: center;
   display: flex;
-  gap: 10px;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   justify-content: center;
+  margin: 0 0.7rem;
 }
 footer a img {
   transition: scale 0.2s ease-in-out;
@@ -176,4 +179,21 @@ footer a img:hover {
 .copied:hover {
   color: #1b8033;
   outline: 1px solid #1b8033;
+}
+
+@media (max-width: 768px) {
+  section {
+    flex-direction: column;
+  }
+  .user-interactivity {
+    height: 100%;
+    width: 100%;
+  }
+  .encrypted-response {
+    height: 400px;
+    width: 100%;
+  }
+  .encrypt-form textarea {
+    height: 10%;
+  }
 }
