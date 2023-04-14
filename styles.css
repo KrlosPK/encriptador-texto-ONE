@@ -149,6 +149,17 @@ section {
 .decrypted-text {
   font-size: 1.3rem;
   margin-bottom: 2rem;
+  max-height: 320px;
+  overflow: auto;
+  word-break: break-all;
+}
+.decrypted-text::-webkit-scrollbar {
+  background-color: #fff;
+  width: 0.4rem;
+}
+.decrypted-text::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  border-radius: 0.4rem;
 }
 
 footer {
